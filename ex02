@@ -1,0 +1,61 @@
+#include <stdio.h>
+#include <ctype.h>
+
+int main() {
+    
+    float numero; 
+    char operador; 
+    float resultado; 
+
+    
+    printf("Digite o valor a ser convertido:\n");
+    if (scanf("%f", &numero) != 1) { 
+        printf(" Tente novamente.\n");
+        return 1; 
+    }
+
+    printf("\nSELECIONE A OPÇÃO QUE DESEJA:\n");
+    printf("1. Km (Quilômetros) -> Mi (Milhas)\n");
+    printf("2. Mi (Milhas) -> Km (Quilômetros)\n");
+    printf("3. Kg (Quilogramas) -> Lb (Libras)\n");
+    printf("4. Lb (Libras) -> Kg (Quilogramas)\n");
+    printf("5. M (Metros) -> P (Pés)\n");
+    printf("6. P (Pés) -> M (Metros)\n");
+
+    if (scanf(" %c", &operador) != 1) { 
+        printf(" Tente novamente.\n");
+        return 1; 
+    }
+
+    operador = toupper(operador); 
+    switch (operador) {
+        case '1': 
+            resultado = numero * 0.621371;
+            printf("\n%.2f Km é igual a %.2f Mi\n", numero, resultado);
+            break;
+        case '2': 
+            resultado = numero / 0.621371;
+            printf("\n%.2f Mi é igual a %.2f Km\n", numero, resultado);
+            break;
+        case '3': 
+            resultado = numero * 2.20462;
+            printf("\n%.2f Kg é igual a %.2f Lb\n", numero, resultado);
+            break;
+        case '4': 
+            resultado = numero / 2.20462;
+            printf("\n%.2f Lb é igual a %.2f Kg\n", numero, resultado);
+            break;
+        case '5': 
+            resultado = numero * 3.28084;
+            printf("\n%.2f M é igual a %.2f Pés\n", numero, resultado);
+            break;
+        case '6': 
+            resultado = numero / 3.28084;
+            printf("\n%.2f Pés é igual a %.2f M\n", numero, resultado);
+            break;
+        default:
+            printf("\nOpção Inválida!!!\n");
+    }
+
+    return 0; 
+}
